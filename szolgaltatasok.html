@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html lang="hu">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MJ5HPFXJ');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-PSYL5CJJL0"></script>
+	<script>
+  	 window.dataLayer = window.dataLayer || [];
+  	 function gtag(){dataLayer.push(arguments);}
+  	 gtag('js', new Date());
+
+         gtag('config', 'G-PSYL5CJJL0');
+	</script>
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Kreatív workshopok, kézműves foglalkozások gyerekeknek és felnőtteknek Bükön, Vas vármegyében." name="description"/>
+<meta content="kreatív workshop, kézműves foglalkozás, Bük, csapatépítés, ajándékutalvány" name="keywords"/>
+<meta content="Brigi Dekor&amp;HandMade" name="author"/>
+<link href="styles.css" rel="stylesheet"/>
+<link href="img/favikon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&amp;family=Satisfy&amp;display=swap" rel="stylesheet"/>
+
+	<meta property="og:title" content="Brigi Dekor&HandMade - Szolgáltatások" />
+	<meta property="og:description" content="Ismerje meg műhelyemet, kreatív workshopjaimat és egyedi kézműves termékeimet!" />
+	<meta property="og:image" content="img/cover.png" />
+	<meta property="og:image" content="https://www.bdhm.hu/img/cover.png" />
+	<meta property="og:type" content="website" />
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {  // Késleltetés 100ms-mal
+        document.querySelectorAll("a").forEach(link => {
+            let href = link.getAttribute("href");
+            if (href && href.endsWith(".html")) {
+                let newHref = href.replace(".html", "");
+                link.setAttribute("href", newHref);
+
+                // Megakadályozza, hogy visszatérjen a .html-re
+                link.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    window.location.href = newHref;
+                });
+            }
+        });
+    }, 100);
+});
+
+</script>
+
+
+<script>
+function switchLanguage(lang) {
+    console.log("Nyelvváltás történt:", lang); // Hibaellenőrzés
+    localStorage.setItem('selectedLanguage', lang);
+    applyLanguage(lang);
+}
+
+function applyLanguage(lang) {
+    console.log("Mentett nyelv alkalmazása:", lang); // Hibaellenőrzés
+    document.documentElement.lang = lang;
+
+    // Minden olyan elem frissítése, amelynek data-lang attribútuma van
+    document.querySelectorAll('[data-lang]').forEach(el => {
+        el.style.display = (el.getAttribute('data-lang') === lang) ? 'inline' : 'none';
+    });
+
+    // Fejléc, ikonok, lábléc frissítése (csak ha az oldal tartalmazza ezeket)
+    if (document.querySelector('.welcome h1')) {
+        document.querySelector('.welcome h1').textContent = translations[lang].h1;
+    }
+    if (document.querySelector('.welcome p')) {
+        document.querySelector('.welcome p').textContent = translations[lang].p;
+    }
+    if (document.querySelector('.footer')) {
+        document.querySelector('.footer').innerHTML = translations[lang].footer;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLanguage = localStorage.getItem('selectedLanguage') || 'hu';
+    console.log("Oldal betöltéskor mentett nyelv:", savedLanguage); // Hibaellenőrzés
+    applyLanguage(savedLanguage);
+});
+
+
+    </script>
+<title>Szolgáltatások - Brigi Dekor&amp;HandMade</title>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJ5HPFXJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="language-switcher">
+<a href="#" onclick="switchLanguage('hu')"><img alt="Magyar zászló" src="img/moz.png"/></a>
+<a href="#" onclick="switchLanguage('fi')"><img alt="Finn zászló" src="img/fz.png"/></a>
+</div>
+<!-- Navigation -->
+<nav class="navbar">
+<ul class="nav-menu">
+<li>
+<a class="nav-link" href="index.html">
+<img alt="Kezdőlap ikon" src="img/favikon.png"/>
+<span><span data-lang="hu">Kezdőlap</span><span data-lang="fi" style="display: none;">Etusivu</span></span>
+</a>
+</li>
+<li>
+<a class="nav-link" href="rolam.html">
+<img alt="Rólam ikon" src="img/rolam.png"/>
+<span><span data-lang="hu">Rólam</span><span data-lang="fi" style="display: none;">Minusta</span></span>
+</a>
+</li>
+<li class="dropdown">
+   <a class="nav-link active" href="szolgaltatasok.html">  
+	<img alt="Szolgáltatások ikon" src="img/ws.png"/>
+<span data-lang="hu">Szolgáltatások ▾</span><span data-lang="fi" style="display: none;">Palvelut ▾</span> </a>
+    <ul class="dropdown-menu">
+	
+        <li><a href="#workshop">Workshop</a></li>
+        <li><a href="#termekek">Termékek</a></li>
+        <li><a href="#arcfestes">Arcfestés, csillámtetoválás</a></li>
+        <li><a href="#nyomtatas">Nyomtatás, fénymásolás, scannelés, spirálkötés, laminálás</a></li>
+        <li><a href="#kitelepulesek">Kitelepülések</a></li>
+    </ul>
+</li>
+<li>
+<a class="nav-link" href="hirek.html">
+<img alt="Hírek ikon" src="img/hirek.png"/>
+<span><span data-lang="hu">Hírek</span><span data-lang="fi" style="display: none;">Uutiset</span></span>
+</a>
+</li>
+</ul>
+</nav>
+<div class="hamburger" onclick="toggleMenu()">
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.querySelector(".hamburger");
+    const menu = document.querySelector(".nav-menu");
+    const body = document.body;
+
+    function toggleMenu() {
+        menu.classList.toggle("active");
+        body.classList.toggle("menu-open");
+    }
+
+    if (hamburger) {
+        hamburger.addEventListener("click", toggleMenu);
+    }
+
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 768) {
+            menu.classList.remove("active");
+            body.classList.remove("menu-open");
+        }
+    });
+});
+
+</script>
+
+<!-- Main Content -->
+<section id="workshop" class="workshop-section">
+
+	<div class="slider-container">
+    <div class="slider">
+		<img src="img/szolg/ajto.jpg" alt="Workshop 1">
+        <img src="img/ws1.jpg" alt="Workshop 2">
+        <img src="img/ws2.jpg" alt="Workshop 3">
+        <img src="img/ws3.jpg" alt="Workshop 4">
+        <img src="img/ws4.jpg" alt="Workshop 5">
+		<img src="img/szolg/ajto.jpg" alt="Workshop 6">
+    </div>
+</div>
+
+<h2><span data-lang="hu">✂️ Kreatív Workshopok Bükön</span><span data-lang="fi" style="display: none;">Luovat työpajat Bükissä</span></h2>
+<h3><span data-lang="hu">Miért válassza workshopjaimat?</span><span data-lang="fi" style="display: none;">Miksi valita työpajani?</span></h3> <p> <span data-lang="hu"> A Brigi Dekor&HandMade Műhely egyedülálló lehetőséget kínál mindenkinek, aki szeretné kifejezni kreativitását, élvezni a kézműves foglalkozások örömét, vagy éppen valami különlegeset ajándékozni. A Bük szívében, Vas vármegye egyik legvonzóbb kisvárosában, egy olyan helyet hoztam létre, ahol minden korosztály megtalálja a számára legmegfelelőbb foglalkozást. </span> <span data-lang="fi" style="display: none;"> Brigi Dekor&HandMade -paja tarjoaa ainutlaatuisen mahdollisuuden kaikille, jotka haluavat ilmaista luovuuttaan, nauttia käsityöpajojen ilosta tai antaa jotain erityistä lahjaksi. Bükin sydämessä, Vas-komitaatin viehättävässä pikkukaupungissa, olen luonut paikan, jossa kaikenikäiset löytävät itselleen sopivan työpajan. </span> </p> 
+<h3><span data-lang="hu">Mit nyújtanak workshopjaim?</span><span data-lang="fi" style="display: none;">Mitä työpajani tarjoavat?</span></h3>
+<ul style="list-style: none;"> <li> 🎨 <span data-lang="hu"><strong>Kreatív kézműves foglalkozások:</strong> Gyermekek és felnőttek egyaránt részt vehetnek az egyedi programjaimon, ahol az önmegvalósítás és az alkotás öröme kerül előtérbe.</span> <span data-lang="fi" style="display: none;"><strong>Luovat käsityöpajat:</strong> Sekä lapset että aikuiset voivat osallistua ainutlaatuisiin ohjelmiin, joissa itsensä toteuttaminen ja luomisen ilo ovat keskiössä.</span> </li> <li>🧒<span data-lang="hu"><strong>Gyerekfejlesztés kreatívan:</strong> A műhely foglalkozásai segítik a gyerekek finommotorikus képességeinek fejlesztését, és hozzájárulnak kreativitásuk kibontakoztatásához.</span> <span data-lang="fi" style="display: none;"><strong>Luova lasten kehitys:</strong> Työpajani auttavat lapsia kehittämään hienomotorisia taitojaan ja edistävät heidän luovuutensa kehittymistä.</span> </li> <li> 👥 <span data-lang="hu"><strong>Csapatépítő programok:</strong> Ideális lehetőség baráti társaságok és munkaközösségek számára, hogy közösen alkothassanak, miközben erősítik a közösségi kötelékeket.</span> <span data-lang="fi" style="display: none;"><strong>Tiimityötä vahvistavat ohjelmat:</strong> Täydellinen mahdollisuus ystäväporukoille ja työyhteisöille luoda yhdessä ja vahvistaa yhteisöllisyyttä.</span> </li> <span data-lang="hu">🎟️ <strong>Jelenleg elérhető Ajándékutalványok:</strong></span><span data-lang="fi" style="display: none;">🎟️ <strong>KTällä hetkellä saatavilla olevat lahjakortit</strong></span>
+ 
+    <ul style="list-style: none; padding: 0; font-size: 1.1em; color: #333; text-align:center">
+        <li>🖌️ <span data-lang="hu">Kézműves foglalkozáson való részvételre</span><span data-lang="fi" style="display: none;">Osallistuminen käsityöpajaan</span></li>
+        <li>🛍️ <span data-lang="hu">Kézműves termék vásárlására</span><span data-lang="fi" style="display: none;">Käsityötuotteiden ostoon</span></li>
+        <li>🍞 <span data-lang="hu">Egyéni kovászos kenyérkészítés adalékmentesen</span><span data-lang="fi" style="display: none;">Yksilöllinen hapanleivän leivonta ilman lisäaineita</span></li>
+        <li>👩‍🍳 <span data-lang="hu">Páros kovászos kenyérkészítés adalékmentesen</span><span data-lang="fi" style="display: none;">Parihapanleivän leivonta ilman lisäaineita</span></li>
+    </ul> 
+	<span data-lang="hu">Lepje meg szeretteit egy kreatív foglalkozással, amely nemcsak élményt, hanem maradandó emlékeket is nyújthat.</span><span data-lang="fi" style="display: none;">Yllätä rakkaasi luovalla työpajalla, joka tarjoaa unohtumattomia elämyksiä ja kestäviä muistoja.</span> </li> </ul> <h3><span data-lang="hu">Lokális előnyök</span><span data-lang="fi" style="display: none;">Paikalliset edut</span></h3> <p> <span data-lang="hu"> Workshopjaim könnyen megközelíthetőek Bükfürdő, Sárvár, Szombathely és Kőszeg környékéről. Vas vármegye szépségeivel övezve, műhelyem ideális helyszín mind a helyi lakosok, mind a turisták számára. </span> <span data-lang="fi" style="display: none;"> Työpajani ovat helposti saavutettavissa Bükfürdőstä, Sárvárista, Szombathelystä ja Kőszegistä. Vas-komitaatin kauniissa ympäristössä sijaitseva pajani on ihanteellinen paikka sekä paikallisille asukkaille että turisteille. </span> </p> <h3><span data-lang="hu">Miért különlegesek workshopjaim?</span><span data-lang="fi" style="display: none;">Mikä tekee työpajoistani erityisiä?</span></h3> <p> <span data-lang="hu"> A Brigi Dekor&HandMade workshopokon a résztvevők nemcsak alkotni tanulnak, hanem egyedi élményekkel gazdagodnak. A foglalkozásokat olyan témák köré építem fel, amelyek érdeklik a résztvevőket – legyen szó szezonális dekorációkról, egyedi ajándékokról vagy személyes alkotásokról. </span> <span data-lang="fi" style="display: none;"> Brigi Dekor&HandMade -työpajoissa osallistujat eivät ainoastaan opi luomaan, vaan saavat myös ainutlaatuisia elämyksiä. Järjestän työpajat aiheiden ympärille, jotka kiinnostavat osallistujia – olipa kyse kausikoristeista, yksilöllisistä lahjoista tai henkilökohtaisista taideteoksista. </span> </p> <h3><span data-lang="hu">Jelentkezz most!</span><span data-lang="fi" style="display: none;">Ilmoittaudu nyt!</span></h3> <p> <span data-lang="hu"> Ne hagyja ki ezt a különleges lehetőséget! Jelentkezzen már ma, és tapasztalja meg, milyen örömet nyújt egy kreatív foglalkozás. Az aktuális workshopokról érdeklődni lehet a megadott elérhetőségek valamelyikén, illetve a Hírek menüpont alatt mindig fel lesznek töltve az éppen aktuális workshopok. </span> <span data-lang="fi" style="display: none;"> Älä jätä tätä ainutlaatuista tilaisuutta väliin! Ilmoittaudu jo tänään ja koe, millaista iloa luova työpaja voi tarjota. Ajankohtaisista työpajoista voi tiedustella annetuista yhteystiedoista. Lisäksi ne päivitetään aina Ajankohtaista-valikon alle, josta löytyy ajantasainen tieto työpajoista. </span> </p>
+</p>
+</section>
+
+<section id="termekek" class="termekek-section" style="background: url('img/wood-texture.jpg') no-repeat center center; background-size: cover; ">
+
+	<div class="slider-container">
+    <div class="slider">
+		<img src="img/szolg/uveg.jpg" alt="Szolg 1">
+        <img src="img/szolg/fagaravir.jpg" alt="Szolg 2">
+        <img src="img/szolg/textil.jpg" alt="Szolg 3">
+        <img src="img/szolg/bogre.jpg" alt="Szolg 4">
+        <img src="img/szolg/kirako.jpg" alt="Szolg 5">
+		<img src="img/szolg/uveg.jpg" alt="Szolg 6">
+    </div>
+	</div>
+    <h2 style="color: #8B4513; text-align: center;"><span data-lang="hu">🛍️ Termékek</span><span data-lang="fi" style="display: none;">Tuotteet</span></h2>
+    <p style="font-size: 1.1em; color: #333;">
+        <span data-lang="hu">A termékek széles skálájával igyekszem kielégíteni a megrendeléseket, illetve az egyéni kéréseknek eleget tenni bármilyen alkalomról is legyen szó.</span>
+        <span data-lang="fi" style="display: none;">Pyrin täyttämään tilaukset laajalla tuotevalikoimallani ja vastaamaan yksilöllisiin pyyntöihin, olipa kyseessä mikä tahansa tilaisuus.</span>
+    </p>
+    <p>
+        <span data-lang="hu">A termékeimet a következő csoportokba tudnám sorolni, a teljesség igénye nélkül:</span>
+        <span data-lang="fi" style="display: none;">Tuotteeni voidaan jakaa seuraaviin ryhmiin, ei täydellisyyden vuoksi, mutta esimerkkinä:</span>
+    </p>
+    <ul style="list-style: none; padding: 0;">
+        <li>
+            <span style="color: #ff5733; font-size: 1.5em; font-weight: bold;">🔹</span>
+            <span data-lang="hu" style="font-size: 1.3em; font-weight: bold;">Ajándéktárgyak</span>
+            <span data-lang="fi" style="display: none; font-size: 1.3em; font-weight: bold;">Lahjatavarat</span>
+            <ul style="list-style: none;">
+                <li>🎁 <span data-lang="hu">Gravírozott üvegajándék</span><span data-lang="fi" style="display: none;">Kaiverrettu lasilahja</span></li>
+                <li>🪵 <span data-lang="hu">Gravírozott fatermék</span><span data-lang="fi" style="display: none;">Kaiverrettu puutuote</span></li>
+                <li>🎍 <span data-lang="hu">Gravírozott bambusztermék</span><span data-lang="fi" style="display: none;">Kaiverrettu bambutuote</span></li>
+                <li>🎨 <span data-lang="hu">Festett fatermékek</span><span data-lang="fi" style="display: none;">Maalatut puutuotteet</span></li>
+                <li>🖌️ <span data-lang="hu">Festett cserépbabák</span><span data-lang="fi" style="display: none;">Maalatut savinuket</span></li>
+            </ul>
+        </li>
+        <li>
+            <span style="color: #ff5733; font-size: 1.5em; font-weight: bold;">🔹</span>
+            <span data-lang="hu" style="font-size: 1.3em; font-weight: bold;">Textiltermékek</span>
+            <span data-lang="fi" style="display: none; font-size: 1.3em; font-weight: bold;">Tekstiilituotteet</span>
+            <ul style="list-style: none;">
+                <li>♻️ <span data-lang="hu">Újra hasznos termékek (újra szalvéta, frissen tartó zsák, uzsonnás táska, nasi-tasi, fogkefe/evőeszköztartó, mosogató párna, arctisztító párna, vászontáska, kenyeres kosár…stb)</span><span data-lang="fi" style="display: none;">Kierrätetyt tuotteet (kierrätyslautasliina, tuorepussi, eväspussi, välipalapussi, hammasharja-/ruokailuvälinesuoja, pesusieni, kasvojen puhdistuslappu, kangaskassi, leipäkori… jne)</span></li>
+                <li>🍏 <span data-lang="hu">Textil zöldségek és gyümölcsök, dekorációk</span><span data-lang="fi" style="display: none;">Tekstiilikasvikset ja -hedelmät, koristeet</span></li>
+                <li>🌸 <span data-lang="hu">Textil virágok</span><span data-lang="fi" style="display: none;">Tekstiilikukat</span></li>
+                <li>🏡 <span data-lang="hu">Dekorációk (kopogtatók, dekorációs kiegészítők, kulcstartó, szatén rózsák.. stb)</span><span data-lang="fi" style="display: none;">Koristeet (ovikoristeet, koristeelliset lisätarvikkeet, avaimenperät, satiinikukat… jne)</span></li>
+                <li>🍽️ <span data-lang="hu">Konyharuhák, edényfogók, székpárnák, terítők, szalvéták…stb</span><span data-lang="fi" style="display: none;">Keittiötekstiilit (keittiöpyyhkeet, patalaput, tuolityynyt, pöytäliinat, lautasliinat… jne)</span></li>
+            </ul>
+        </li>
+        <li><span style="color: #ff5733; font-size: 1.5em; font-weight: bold;">🔹</span> <span data-lang="hu" style="font-size: 1.3em; font-weight: bold;">Vegyes technikával készült termékek</span><span data-lang="fi" style="display: none; font-size: 1.3em; font-weight: bold;">Sekatekniikalla valmistetut tuotteet</span></li>
+        <li><span style="color: #ff5733; font-size: 1.5em; font-weight: bold;">🔹</span> <span data-lang="hu" style="font-size: 1.3em; font-weight: bold;">Egyéni megrendelések</span><span data-lang="fi" style="display: none; font-size: 1.3em; font-weight: bold;">Yksilölliset tilaukset</span></li>
+        <li><span style="color: #ff5733; font-size: 1.5em; font-weight: bold;">🔹</span> <span data-lang="hu" style="font-size: 1.3em; font-weight: bold;">Fényképpel ellátott egyedi ajándéktárgyak </span><span data-lang="fi" style="display: none; font-size: 1.3em; font-weight: bold;">Personoidut valokuvalliset lahjat ()</span>
+		 <ul style="list-style: none;"><li>📸 <span data-lang="hu"> Bögre, póló, csempe, kulcstartó…stb</span><span data-lang="fi" style="display: none;"> Muki, paita, laatta, avaimenperä… jne</span></li>
+            </ul></li>
+    </ul>
+</section>
+
+
+
+
+
+
+<section id="arcfestes" class="arcfestes-section" style="background-color: #ffebf0; padding: 20px; border-radius: 10px;">
+	    <div class="image-container">
+        <img src="img/szolg/csillam.jpg" alt="Arcfestés és Csillámtetoválás">
+    </div>
+    <h2 style="color: #d63384; text-align: center;"><span data-lang="hu">🎨 Arcfestés, Csillámtetoválás</span><span data-lang="fi" style="display: none;">Kasvomaalaus, Kimallustatuoinnit</span></h2>
+
+    <p style="font-size: 1.1em; color: #555;">
+        <span data-lang="hu">Az arcfestés vagy csillámtetoválás egy olyan pontja lehet a rendezvényeknek, amellyel a gyermekeknek kedveskedve nagyobb célközönséget érhet el.</span>
+        <span data-lang="fi" style="display: none;">Kasvomaalaus tai kimallustatuoinnit voivat olla tapahtuman vetonauloja, joiden avulla voit houkutella laajemman yleisön ilahduttamalla lapsia.</span>
+    </p>
+    <p style="font-size: 1.1em; color: #555;">
+        <span data-lang="hu">🎭 Mindezzel színesítheti a céges rendezvényt, születésnapot, fesztivált, falunapot.</span>
+        <span data-lang="fi" style="display: none;">Tämä voi elävöittää yritystapahtumaa, syntymäpäivää, festivaalia tai kyläjuhlaa.</span>
+    </p>
+    <p style="font-weight: bold; font-size: 1.2em; color: #d63384; text-align: center;">
+        <span data-lang="hu">🌍 Kitelepüléses szolgáltatás</span>
+        <span data-lang="fi" style="display: none;">🌍 Paikan päällä tarjottava palvelu</span>
+    </p>
+</section>
+
+
+
+<section id="nyomtatas" class="nyomtatas-section" style="background-color: #e3f2fd; padding: 20px; border-radius: 10px;">
+    <div class="image-container">
+        <img src="img/szolg/nyomtatas.jpg" alt=" Nyomtatás">
+    </div>
+    <h2 style="color: #1565c0; text-align: center;"><span data-lang="hu">🖨️ Nyomtatás, fénymásolás, scannelés, spirálkötés, laminálás</span><span data-lang="fi" style="display: none;">Tulostus, kopiointi, skannaus, kierresidonta, laminointi</span></h2>
+    <p style="font-size: 1.1em; color: #555;">
+        <span data-lang="hu">A szolgáltatás egyes elemei nem csupán személyes találkozást követően érhetőek el, mert a nyomtatás, spirálkötés, laminálás folyamatait követően a kívánt dokumentumokat csomagküldés útján is a rendelkezésre tudom bocsájtani, így bárki számára kényelmesen elérhető ez a szolgáltatás is.</span>
+        <span data-lang="fi" style="display: none;">Palvelun tietyt osat eivät edellytä henkilökohtaista tapaamista, sillä tulostuksen, kierresidonnan ja laminoinnin jälkeen halutut asiakirjat voidaan toimittaa myös postitse. Näin palvelu on kätevästi saatavilla kaikille.</span>
+    </p>
+    <p style="font-weight: bold; font-size: 1.2em; color: #1565c0; text-align: center;">
+        <span data-lang="hu">📦 Csomagküldés elérhető</span>
+        <span data-lang="fi" style="display: none;">📦 Postitoimitus saatavilla</span>
+    </p>
+</section>
+
+<section id="kitelepulesek" class="kitelepulesek-section" style="background-color: #fff3cd; padding: 20px; border-radius: 10px;">
+    <div class="image-container">
+        <img src="img/szolg/kitelepules.jpg" alt="Kitelepülés vásáron">
+    </div>
+    <h2 style="color: #d39e00; text-align: center;"><span data-lang="hu">🚛 Kitelepülések</span><span data-lang="fi" style="display: none;">Tapahtumavierailut</span></h2>
+    <p style="font-size: 1.1em; color: #555;">
+        <span data-lang="hu">A kitelepülések egyfajta lehetőséget nyújtanak arra, hogy bemutathassam a munkásságomat, a kézműves foglalkozásokat külső helyszínen is megtarthassam.</span>
+        <span data-lang="fi" style="display: none;">Tapahtumavierailut tarjoavat mahdollisuuden esitellä työni ja järjestää käsityöpajoja myös ulkoisissa kohteissa.</span>
+    </p>
+    <p style="font-size: 1.1em; color: #555;">
+        <span data-lang="hu">🎪 Ilyen kitelepülés lehet egy családi nap, egy falunap, egy fesztivál, egy rendezvény vagy bármilyen esemény. Akár oktatási intézmények számára is elérhető ezen szolgáltatásom.</span>
+        <span data-lang="fi" style="display: none;">🎪 Tällainen tapahtumavierailu voi olla perhepäivä, kyläjuhla, festivaali, tapahtuma tai mikä tahansa muu tilaisuus. Palveluni on saatavilla myös oppilaitoksille.</span>
+    </p>
+</section>
+
+</main>
+<!-- Footer -->
+<div class="footer-contacts" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+    <div class="left-side">
+        <a class="contact-item" href="mailto:peterne.tajmel@gmail.com">
+            <img alt="Email ikon" src="img/kapcsikon/mail.png"/>
+            <span>peterne.tajmel@gmail.com</span>
+        </a>
+        <a class="contact-item" href="mailto:info@bdhm.hu">
+            <img alt="Email ikon" src="img/kapcsikon/mail.png"/>
+            <span>info@bdhm.hu</span>
+        </a>
+		<a class="contact-item" href="tel:+36703256524">
+		<img alt="Telefon ikon" src="img/kapcsikon/tel.png"/>
+		<span>+36 70 325 6524</span>
+		</a>
+        <div class="zold">
+            <img src="img/zold/zold.jpg" alt="Zöld Minősítés Díjazott" style="width: 100%; border-radius: 8px;">
+        </div>
+    </div>
+    <div class="right-side">
+        <a class="contact-item" href="https://www.facebook.com/brigimade" target="_blank">
+            <img alt="Facebook ikon" src="img/kapcsikon/face.png"/>
+            <span>Facebook</span>
+        </a>
+        <a class="contact-item" href="https://www.tiktok.com/@tpbrigi?_t=ZN-8siAh9ixNoN&_r=1" target="_blank">
+            <img alt="TikTok ikon" src="img/kapcsikon/tiktok.png"/>
+            <span>TikTok</span>
+        </a>
+        <div class="contact-item">
+            <img alt="Cím ikon" src="img/kapcsikon/cim.png"/>
+            <span>9737 Bük, Kossuth utca 2.</span>
+        </div>
+		<div class="google-map">
+		<iframe allowfullscreen="" height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2701.5598279588285!2d16.75327993319717!3d47.38150892350804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476eaf687bbf577d%3A0x4e1c5372b60d7cf4!2sB%C3%BCk%2C%20Kossuth%20u.%202%2C%209737!5e0!3m2!1sen!2shu!4v1752523856787!5m2!1sen!2shu" style="border:0;" width="600">
+</iframe>
+    </div>
+	 </div>
+</div>
+<div class="footer">
+    <p>
+        <span data-lang="hu">Copyright © 2025 Brigi Dekor&HandMade. Minden jog fenntartva.</span>
+        <span data-lang="fi" style="display: none;">Tekijänoikeus © 2025 Brigi Dekor&HandMade. Kaikki oikeudet pidätetään.</span>
+    </p>
+    <div>
+        <a href="adatvedelem.html" target="_blank" style="color: inherit; text-decoration: none;" data-lang="hu">Adatvédelmi nyilatkozat</a>
+        <a href="adatvedelem-fi.html" target="_blank" style="color: inherit; text-decoration: none; display: none;" data-lang="fi">Tietosuojailmoitus</a>
+        |
+        <a href="cookie-nyilatkozat.html" target="_blank" style="color: inherit; text-decoration: none;" data-lang="hu">Süti nyilatkozat</a>
+        <a href="cookie-nyilatkozat-fi.html" target="_blank" style="color: inherit; text-decoration: none; display: none;" data-lang="fi">Evästeilmoitus</a>
+    </div>
+</div>
+<a href="#" id="scrollToTop">
+    <img src="img/up.gif" alt="Vissza az elejére" />
+</a>
+
+ <script>
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault(); // Tiltja a jobbklikk menüt
+    });
+    document.addEventListener('dragstart', function(e) {
+        e.preventDefault(); // Tiltja a képek húzását
+    });
+</script>
+<script>
+function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookie-banner').style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('cookiesAccepted') === 'true') {
+        document.getElementById('cookie-banner').style.display = 'none';
+    }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const dropdown = document.querySelector(".dropdown");
+    const dropdownMenu = document.querySelector(".dropdown-menu");
+
+    dropdown.addEventListener("click", function(event) {
+        event.preventDefault(); // Ne ugorjon az oldal tetejére kattintáskor
+        dropdownMenu.classList.toggle("show");
+    });
+
+    // Ha az egyik menüpontra kattintunk, bezárja a menüt és az adott szekcióra görget
+    document.querySelectorAll(".dropdown-menu a").forEach(link => {
+        link.addEventListener("click", function(event) {
+            dropdownMenu.classList.remove("show"); // Menü bezárása
+
+            // Megvizsgáljuk, hogy az URL .html végződésű-e vagy sem
+            let currentPath = window.location.pathname.replace(".html", ""); // Ha van .html, eltávolítjuk
+            let expectedPath = "/szolgaltatasok";
+
+            if (currentPath === expectedPath) {
+                event.preventDefault(); // Megakadályozzuk az alapértelmezett működést
+                const targetId = this.getAttribute("href").substring(1); // "#workshop" -> "workshop"
+                const targetSection = document.getElementById(targetId);
+
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: "smooth" }); // Simán odagörget
+                }
+            } else {
+                // Ha másik oldalról kattintunk, akkor irányítson át a megfelelő URL-re
+                event.preventDefault();
+                window.location.href = expectedPath + this.getAttribute("href");
+            }
+        });
+    });
+
+    // Ha máshová kattint a felhasználó, zárja be a menüt
+    document.addEventListener("click", function(event) {
+        if (!dropdown.contains(event.target)) {
+            dropdownMenu.classList.remove("show");
+        }
+    });
+});
+
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var scrollToTopButton = document.getElementById("scrollToTop");
+
+    window.addEventListener("scroll", function() {
+        if (window.scrollY > 300) { // Ha 300px-nél többet görgetünk
+            scrollToTopButton.style.display = "block";
+        } else {
+            scrollToTopButton.style.display = "none";
+        }
+    });
+
+    scrollToTopButton.addEventListener("click", function(event) {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll(".nav-link");
+    const currentPage = window.location.pathname.split("/").pop();
+
+    links.forEach(link => {
+        const linkPath = link.getAttribute("href").split("/").pop();
+        
+        if (currentPage === linkPath) {
+            link.classList.add("active");
+
+            // Ha az elem egy dropdown része, ne kapjon aktív háttérszínt
+            if (link.closest(".dropdown-menu")) {
+                link.classList.remove("active");
+            }
+        }
+    });
+});
+</script>
+
+</body>
+</html>
+
+

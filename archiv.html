@@ -1,0 +1,426 @@
+<html lang="hu">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Kreatív workshopok, kézműves foglalkozások gyerekeknek és felnőtteknek Bükön, Vas vármegyében." name="description"/>
+<meta content="kreatív workshop, kézműves foglalkozás, Bük, csapatépítés, ajándékutalvány" name="keywords"/>
+<meta content="Brigi Dekor&amp;HandMade" name="author"/>
+<link href="styles.css" rel="stylesheet"/>
+<link href="img/favikon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&amp;family=Satisfy&amp;display=swap" rel="stylesheet"/>
+
+	<meta property="og:title" content="Brigi Dekor&HandMade - Hírek" />
+	<meta property="og:description" content="Ismerje meg műhelyemet, kreatív workshopjaimat és egyedi kézműves termékeimet!" />
+	<meta property="og:image" content="img/cover.png" />
+	<meta property="og:image" content="https://www.bdhm.hu/img/cover.png" />
+	<meta property="og:type" content="website" />
+	
+	<script>
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {  // Késleltetés 100ms-mal
+        document.querySelectorAll("a").forEach(link => {
+            let href = link.getAttribute("href");
+            if (href && href.endsWith(".html")) {
+                let newHref = href.replace(".html", "");
+                link.setAttribute("href", newHref);
+
+                // Megakadályozza, hogy visszatérjen a .html-re
+                link.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    window.location.href = newHref;
+                });
+            }
+        });
+    }, 100);
+});
+</script>
+
+<script>
+function switchLanguage(lang) {
+    console.log("Nyelvváltás történt:", lang); // Hibaellenőrzés
+    localStorage.setItem('selectedLanguage', lang);
+    applyLanguage(lang);
+}
+
+function applyLanguage(lang) {
+    console.log("Mentett nyelv alkalmazása:", lang); // Hibaellenőrzés
+    document.documentElement.lang = lang;
+
+    // Minden olyan elem frissítése, amelynek data-lang attribútuma van
+    document.querySelectorAll('[data-lang]').forEach(el => {
+        el.style.display = (el.getAttribute('data-lang') === lang) ? 'inline' : 'none';
+    });
+
+    // Fejléc, ikonok, lábléc frissítése (csak ha az oldal tartalmazza ezeket)
+    if (document.querySelector('.welcome h1')) {
+        document.querySelector('.welcome h1').textContent = translations[lang].h1;
+    }
+    if (document.querySelector('.welcome p')) {
+        document.querySelector('.welcome p').textContent = translations[lang].p;
+    }
+    if (document.querySelector('.footer')) {
+        document.querySelector('.footer').innerHTML = translations[lang].footer;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLanguage = localStorage.getItem('selectedLanguage') || 'hu';
+    console.log("Oldal betöltéskor mentett nyelv:", savedLanguage); // Hibaellenőrzés
+    applyLanguage(savedLanguage);
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const dropdown = document.querySelector(".dropdown > a"); // A fő "Szolgáltatások" menüpont
+    const dropdownMenu = document.querySelector(".dropdown-menu");
+
+    dropdown.addEventListener("click", function(event) {
+        event.preventDefault(); // Ne ugorjon az oldal tetejére kattintáskor
+
+        if (!dropdownMenu.classList.contains("show")) {
+            window.location.href = "szolgaltatasok.html"; // Átirányítás az oldalra
+        }
+
+        dropdownMenu.classList.toggle("show");
+    });
+
+    // Ha az egyik lenyíló menüpontra kattintunk, bezárja a menüt és odagörget
+    document.querySelectorAll(".dropdown-menu a").forEach(link => {
+        link.addEventListener("click", function(event) {
+            dropdownMenu.classList.remove("show");
+
+            const targetPage = "szolgaltatasok.html";
+            const targetId = this.getAttribute("href").substring(1); // "#workshop" -> "workshop"
+
+            if (window.location.pathname.includes(targetPage)) {
+                event.preventDefault();
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: "smooth" });
+                }
+            } else {
+                window.location.href = targetPage + "#" + targetId;
+            }
+        });
+    });
+
+    // Ha máshová kattint a felhasználó, zárja be a lenyíló menüt
+    document.addEventListener("click", function(event) {
+        if (!dropdown.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.remove("show");
+        }
+    });
+});
+
+
+</script>
+
+<title>Hírek - Brigi Dekor&amp;HandMade</title>
+</head>
+<body>
+<div class="language-switcher">
+<a href="#" onclick="switchLanguage('hu')"><img alt="Magyar zászló" src="img/moz.png"/></a>
+<a href="#" onclick="switchLanguage('fi')"><img alt="Finn zászló" src="img/fz.png"/></a>
+</div>
+<main>
+
+<section id="hirek" class="hirek-section" style=" padding: 20px; border-radius: 10px;">
+    <h2 style="color: #333; text-align: center;"><span data-lang="hu">📰 Archív Hírek</span><span data-lang="fi" style="display: none;">📰 Arkistoidut uutiset</span></h2>
+    <div class="hirek-container" style="display: flex; flex-direction: column; align-items: center; gap: 20px; max-width: 600px; margin: auto;">
+	<button onclick="window.location.href='hirek.html'" style="background-color: #1e88e5; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-size: 18px; font-weight: bold; width: 100%;">
+    <span data-lang="hu">📜 Vissza a friss hírekhez</span>
+    <span data-lang="fi" style="display: none;">📜 Takaisin tuoreimpiin uutisiin</span>
+</button>
+	 <!-- Hírkártya 1 -->
+	 
+	 <div class="hirek-card" style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); width: 100%;">
+    <img src="img/hir/nyuszi.jpg" alt="Nyuszi hír képe" style="width: 100%; border-radius: 8px;">
+    <h3 style="color: #1e88e5; margin-top: 10px;">
+        <span data-lang="hu">🐰 Nyuszi-váró kézműves délután gyerekeknek</span>
+        <span data-lang="fi" style="display: none;">🐰 Pääsiäispuuha-iltapäivä lapsille</span>
+    </h3>
+    <p style="color: #555;">
+        <span data-lang="hu">Hamarosan érkezem hozzátok, hogy néhány kis csomagot kiosszak köztetek. Arra gondoltam, hogy mindezt egy kis kézműves barkácsolással karöltve tenném meg.</span>
+        <span data-lang="fi" style="display: none;">Olen pian tulossa jakamaan pieniä yllätyspaketteja teille. Ajattelin tehdä sen yhdessä pienen askartelun kanssa.</span>
+    </p>
+    <a href="#" onclick="toggleNews(event, 'hir4')" style="color: #1e88e5; text-decoration: none; font-weight: bold;">
+        <span data-lang="hu">Olvass tovább...</span>
+        <span data-lang="fi" style="display: none;">Lue lisää...</span>
+    </a>
+    <div id="hir4" class="full-news" style="display: none; padding: 15px; background: #fff; border-radius: 8px;">
+        <p><span data-lang="hu">Ha te is szeretnél részt venni egy jó hangulatú Nyuszi-váró délutánon, regisztrálj az <strong>info@bdhm.hu</strong> címen!</span>
+        <span data-lang="fi" style="display: none;">Jos haluat osallistua hauskaan pääsiäisiltapäivään, ilmoittaudu osoitteessa <strong>info@bdhm.hu</strong>!</span></p>
+
+        <h4><span data-lang="hu">📍 Helyszín:</span><span data-lang="fi" style="display: none;">📍 Paikka:</span></h4>
+        <p><span data-lang="hu">Brigi Dekor&HandMade Műhely, 9737 Bük, Petőfi Sándor u. 21/A</span>
+        <span data-lang="fi" style="display: none;">Brigi Dekor&HandMade Työpaja, 9737 Bük, Petőfi Sándor u. 21/A</span></p>
+
+        <h4><span data-lang="hu">🗓️ Időpont:</span><span data-lang="fi" style="display: none;">🗓️ Aika:</span></h4>
+        <p><span data-lang="hu">2025.04.12. 15:00–18:00 (3–6 éveseknek)<br>2025.04.13. 15:00–18:00 (7–14 éveseknek)</span>
+        <span data-lang="fi" style="display: none;">12.04.2025 klo 15:00–18:00 (3–6-vuotiaille)<br>13.04.2025 klo 15:00–18:00 (7–14-vuotiaille)</span></p>
+
+        <h4><span data-lang="hu">💰 Részvételi díj:</span><span data-lang="fi" style="display: none;">💰 Osallistumismaksu:</span></h4>
+        <p><span data-lang="hu">2000 Ft/fő (Testvérek jöhetnek együtt, ha nem is egy korosztály!)</span>
+        <span data-lang="fi" style="display: none;">2000 HUF/hlö (Sisarukset voivat osallistua yhdessä, vaikka olisivat eri ikäryhmää!)</span></p>
+
+        <p style="text-align:center">
+            <span data-lang="hu">ℹ️ További információkért keressetek bátran az elérhetőségeimen!</span>
+            <span data-lang="fi" style="display: none;">ℹ️ Lisätietoja saa ottamalla rohkeasti yhteyttä!</span>
+        </p>
+        <button onclick="toggleNews(event, 'hir4')" style="margin-top: 15px; background-color: white; color: blue; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">Bezárás</button>
+    </div>
+</div>
+        <div class="hirek-card" style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); width: 100%;">
+            <img src="img/hir/hir1.jpeg" alt="Hír képe" style="width: 100%; border-radius: 8px; box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); width: 100%;">
+            <h3 style="color: #1e88e5; margin-top: 10px;"><span data-lang="hu">Nőnapi kézműveskedés!</span><span data-lang="fi" style="display: none;">Naistenpäivän käsityöpaja!</span></h3>
+            <p style="color: #555;"><span data-lang="hu">Sok szeretettel várom azon fiúgyermekek jelentkezését egy kreatív kézműves foglalkozásra, akik szeretnék az idei évben egy egyedi, különleges és főként az általuk készített kis ajándékkal meglepni a családjuk Női tagjait!</span>
+            <span data-lang="fi" style="display: none;">Rakastavalla kutsun poikalapset luovaan käsityöpajaan, jotka haluavat tänä vuonna yllättää perheensä naisjäseniä ainutlaatuisella, erityisellä ja ennen kaikkea heidän itse tekemällään pienellä lahjalla!</span></p>
+            <a href="#" onclick="toggleNews(event, 'hir1')" style="color: #1e88e5; text-decoration: none; font-weight: bold;"><span data-lang="hu">Olvass tovább...</span><span data-lang="fi" style="display: none;">Lue lisää...</span></a>
+            <div id="hir1" class="full-news" style="display: none; padding: 15px; background: #fff; margin-top: 10px;">
+                <h4 style="color: #333;"><span data-lang="hu">📍 Helyszín</span><span data-lang="fi" style="display: none;">📍 Sijainti</span></h4>
+                <p><span data-lang="hu">Brigi Dekor&HandMade Műhelye, 9737 Bük, Petőfi Sándor u, 21/A</span>
+                <span data-lang="fi" style="display: none;">Brigi Dekor&HandMade Työpaja, 9737 Bük, Petőfi Sándor u, 21/A</span></p>
+                
+                <h4 style="color: #333;"><span data-lang="hu">📅 Időpont</span><span data-lang="fi" style="display: none;">📅 Aika</span></h4>
+                <p><span data-lang="hu">2025.02.22.  16:00-18:00 (ovis korcsoport – 3-6 évesek)<br>2025.03.01.  16:00-18:00 (iskolás korcsoport – 7-14 évesek)</span>
+                <span data-lang="fi" style="display: none;">2025.02.22.  16:00-18:00 (esikouluikäiset – 3-6-vuotiaat)<br>2025.03.01.  16:00-18:00 (koululaiset – 7-14-vuotiaat)</span></p>
+                               
+                <h4 style="color: #333;"><span data-lang="hu">💰 Részvételi díj</span><span data-lang="fi" style="display: none;">💰 Osallistumismaksu</span></h4>
+                <p><span data-lang="hu">2500 Ft/gyermek, mely tartalmazza a korlátlan darabszámú ajándék elkészítését a hozzávalókkal együtt, rágcsát és üdítőt a foglalkozás ideje alatt. A foglalkozásokon egyszerre maximum 10 gyermek tud részt venni.</span>
+                <span data-lang="fi" style="display: none;">2500 Ft/lapsi, mikä sisältää rajattoman määrän lahjoja tarvikkeineen, välipalat ja juomat työpajan aikana. Työpajoihin mahtuu enintään 10 lasta kerrallaan.</span></p>
+                                <h4 style="color: #333;"><span data-lang="hu">📌 Részvételi feltételek</span><span data-lang="fi" style="display: none;">📌 Osallistumisehdot</span></h4>
+                <p><span data-lang="hu">A programon való részvételhez regisztráció szükséges, melyet az <strong>info@bdhm.hu</strong> e-mail címen lehet megtenni, vagy az alábbi űrlap kitöltésével!</span>
+                <span data-lang="fi" style="display: none;">Osallistuminen vaatii ennakkoilmoittautumisen sähköpostitse osoitteeseen <strong>info@bdhm.hu</strong> tai täyttämällä alla olevan lomakkeen!</span></p>
+    </div>
+</div>
+
+		<!-- Hírkártya 2 -->
+	<div class="hirek-card" style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); width: 100%;">
+    <img src="img/hir/hir2.jpg" alt="Hír képe" style="width: 100%; border-radius: 8px; box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); width: 100%;">
+    <h3 style="color: #1e88e5; margin-top: 10px;"><span data-lang="hu">Nőnapi ajánlat – Virágok egész évben</span><span data-lang="fi" style="display: none;">Naistenpäivän tarjous – Kukkia ympäri vuoden</span></h3>
+    <p style="color: #555;"><span data-lang="hu">Az idei évben is többféle virág-termékem közül választhattok és lesznek újak is, ismét. 🌸 🌼 🌻 🌹 💐 🌷 🌺 🌹</span><span data-lang="fi" style="display: none;">Tänä vuonna voit valita useista kukkatuotteistani, ja jälleen kerran tulee myös uusia. 🌸 🌼 🌻 🌹 💐 🌷 🌺 🌹</span></p>
+    <a href="#" onclick="toggleNews(event, 'hir2')" style="color: #1e88e5; text-decoration: none; font-weight: bold;"><span data-lang="hu">Olvass tovább...</span><span data-lang="fi" style="display: none;">Lue lisää...</span></a>
+    <div id="hir2" class="full-news" style="display: none; padding: 15px; background: #fff;">
+        <p><span data-lang="hu">Minden szálas és cserepes virágot igény esetén tudok csomagolni is.</span><span data-lang="fi" style="display: none;">Kaikki yksittäiset ja ruukkukukat voidaan pakata pyynnöstä.</span></p>
+        <p><span data-lang="hu">Minden virág mellé ajándék kis gravírozott bilétát adok, "Sok szeretettel" felirattal.</span><span data-lang="fi" style="display: none;">Jokaisen kukan mukana tulee pieni kaiverrettu laatta, jossa lukee "Paljon rakkautta".</span></p>
+        <h4><span data-lang="hu">Milyen kínálat és ár várható?</span><span data-lang="fi" style="display: none;">Millaista valikoimaa ja hintoja odotettavissa?</span></h4>
+        <ul>
+            <li>🌷 <span data-lang="hu">Hajtogatott tulipán - 600 Ft/szál</span><span data-lang="fi" style="display: none;">Taiteltu tulppaani - 600 Ft/kpl</span></li>
+            <li>🪡 <span data-lang="hu">Kézzel varrt textil virág - 600 Ft/szál</span><span data-lang="fi" style="display: none;">Käsin ommeltu tekstiilikukka - 600 Ft/kpl</span></li>
+            <li>🌼 <span data-lang="hu">Hajtogatott gerbera - 600 Ft/szál</span><span data-lang="fi" style="display: none;">Taiteltu gerbera - 600 Ft/kpl</span></li>
+            <li>🌹 <span data-lang="hu">Szatén szalagból készült rózsa - 800 Ft/szál</span><span data-lang="fi" style="display: none;">Ruusuke satiininauhasta - 800 Ft/kpl</span></li>
+            <li>🎨 <span data-lang="hu">Kézzel festett fa virágok - 450-650 Ft</span><span data-lang="fi" style="display: none;">Käsin maalatut puukukat - 450-650 Ft</span></li>
+            <li>🌺 <span data-lang="hu">Papír szegfű - 400 Ft/szál</span><span data-lang="fi" style="display: none;">Paperinen neilikka - 400 Ft/kpl</span></li>
+            <li>🍭 <span data-lang="hu">Nyalóka köré készített virág - 350 Ft-tól</span><span data-lang="fi" style="display: none;">Kukka, joka on tehty tikkarin ympärille - 350 Ft alkaen</span></li>
+            <li>🪴 <span data-lang="hu">Cserepes hajtogatott kis gerbera - 700 Ft/cserép</span><span data-lang="fi" style="display: none;">Ruukkugerbera - 700 Ft/ruukku</span></li>
+            <li>💐 <span data-lang="hu">Egyedi csokrok rendelhetők</span><span data-lang="fi" style="display: none;">Räätälöidyt kimput tilattavissa</span></li>
+        </ul>
+        <p><span data-lang="hu">Ezen virágok gondozásmentesek, úgynevezett örök virágok.</span><span data-lang="fi" style="display: none;">Nämä kukat ovat huoltovapaita, ns. ikikukkia.</span></p>
+        <p><span data-lang="hu">A virágok egész évben, bármilyen alkalomra rendelhetőek!</span><span data-lang="fi" style="display: none;">Kukat ovat tilattavissa ympäri vuoden, mihin tahansa tilaisuuteen!</span></p>
+        <p><span data-lang="hu">Ha szeretnél rendelni, időben tedd meg, mert a kapacitásom sajnos véges!</span><span data-lang="fi" style="display: none;">Jos haluat tilata, tee se ajoissa, sillä kapasiteettini on rajallinen!</span></p>
+        <p><span data-lang="hu">Nagyobb mennyiség esetén kedvezményt is adok!</span><span data-lang="fi" style="display: none;">Suuremmissa määrissä tarjoan myös alennuksia!</span></p>
+        <p><span data-lang="hu">Országos kiszállítással! 🚚 📦</span><span data-lang="fi" style="display: none;">Toimitus koko maassa!🚚 📦</span></p>
+        <p style="text-align:center"><span data-lang="hu">ℹ️ Keress bátran további kérdés esetén!</span><span data-lang="fi" style="display: none;">ℹ️ Ota rohkeasti yhteyttä, jos sinulla on kysyttävää!</span></p>
+        <button onclick="toggleNews(event, 'hir2')" style="margin-top: 15px; background-color: white; color: blue; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">Bezárás</button>
+    </div>
+</div>
+
+	<div class="hirek-card" style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); width: 100%;">
+    <img src="img/hir/hir3.jpg" alt="Hír képe" style="width: 100%; border-radius: 8px; box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); width: 100%;">
+    <h3 style="color: #1e88e5; margin-top: 10px;"><span data-lang="hu">🥖 Kovászos kenyér-készítés rejtelmei</span><span data-lang="fi" style="display: none;">🥖 Juureen leivotun leivän salaisuudet</span></h3>
+    <p style="color: #555;"><span data-lang="hu">Szeretné megtanulni a kovászos kenyér készítésének minden csínját-bínját?</span><span data-lang="fi" style="display: none;">Haluatko oppia juureen leivotun leivän kaikki salaisuudet?</span></p>
+    <a href="#" onclick="toggleNews(event, 'hir3')" style="color: #1e88e5; text-decoration: none; font-weight: bold;"><span data-lang="hu">Olvass tovább...</span><span data-lang="fi" style="display: none;">Lue lisää...</span></a>
+    <div id="hir3" class="full-news" style="display: none; padding: 15px; background: #fff; border-radius: 8px;">
+        <p><span data-lang="hu">Nem tudja, hogyan neveljen erős kovászt?</span><span data-lang="fi" style="display: none;">Etkö tiedä, kuinka kasvattaa vahva juuri?</span></p>
+        <p><span data-lang="hu">Jöjjön el a Workshopomra, ahol minden kérdésére választ kap!</span><span data-lang="fi" style="display: none;">Tule työpajaani, jossa saat vastaukset kaikkiin kysymyksiisi!</span></p>
+        <h4><span data-lang="hu">📍 Helyszín:</span><span data-lang="fi" style="display: none;">📍 Paikka:</span></h4>
+        <p><span data-lang="hu">Brigi Dekor&HandMade Műhelye, 9737 Bük, Petőfi Sándor u. 21/A</span><span data-lang="fi" style="display: none;">Brigi Dekor&HandMade -työpaja, 9737 Bük, Petőfi Sándor u. 21/A</span></p>
+        <h4><span data-lang="hu">🗓️ Időpont:</span><span data-lang="fi" style="display: none;">🗓️ Aika:</span></h4>
+        <p><span data-lang="hu">2025.03.07. 17:00-20:00<br>2025.05.10. 16:00-19:00</span><span data-lang="fi" style="display: none;">07.03.2025 klo 17:00-20:00<br>10.05.2025 16:00-19:00</span></p>
+        <h4><span data-lang="hu">💰 Részvételi díj:</span><span data-lang="fi" style="display: none;">💰 Osallistumismaksu:</span></h4>
+        <p><span data-lang="hu">8500 Ft/fő</span><span data-lang="fi" style="display: none;">8500 HUF/henkilö</span></p>
+        <p><span data-lang="hu">A programon tésztát állítunk össze és kovászt is adok az induláshoz.</span><span data-lang="fi" style="display: none;">Työpajassa valmistamme taikinan ja annan myös juuren aloitukseen.</span></p>		
+        <h4><span data-lang="hu">📩 Részvétel feltételei:</span><span data-lang="fi" style="display: none;">📩 Osallistumisehdot:</span></h4>
+        <p><span data-lang="hu">Regisztrációs e-mail küldése az <strong>info@bdhm.hu</strong> e-mail címre!</span><span data-lang="fi" style="display: none;">Lähetä ilmoittautumisviesti osoitteeseen <strong>info@bdhm.hu</strong>!</span></p>
+
+					</button>
+					
+					
+				</form>
+
+        <p style="text-align:center"><span data-lang="hu">ℹ️ További részletekről érdeklődjön az elérhetőségeim valamelyikén!</span><span data-lang="fi" style="display: none;">ℹ️ Kysy lisätietoja ottamalla yhteyttä!</span></p>
+        <button onclick="toggleNews(event, 'hir3')" style="margin-top: 15px; background-color: white; color: blue; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">Bezárás</button>
+    </div>
+</div>
+
+<button onclick="window.location.href='hirek.html'" style="background-color: #1e88e5; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-size: 18px; font-weight: bold; width: 100%;">
+    <span data-lang="hu">📜 Vissza a friss hírekhez</span>
+    <span data-lang="fi" style="display: none;">📜 Takaisin tuoreimpiin uutisiin</span>
+</button>
+</section>
+
+    </main>
+
+
+
+<script>
+let lastScrollPosition = 0; // Eltárolja a görgetési pozíciót
+
+function toggleNews(event, newsId) {
+    event.preventDefault(); // Megakadályozza az oldal tetejére ugrást
+    var newsElement = document.getElementById(newsId);
+
+    if (newsElement.style.display === 'none' || newsElement.style.display === '') {
+        lastScrollPosition = window.scrollY; // Elmenti az aktuális pozíciót
+        newsElement.style.display = 'block';
+    } else {
+        newsElement.style.display = 'none';
+        window.scrollTo(0, lastScrollPosition); // Visszagörget az eredeti pozícióra
+    }
+}
+
+</script>
+
+
+
+</main>
+<!-- Footer -->
+<div class="footer-contacts" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+    <div class="left-side">
+        <a class="contact-item" href="mailto:peterne.tajmel@gmail.com">
+            <img alt="Email ikon" src="img/kapcsikon/mail.png"/>
+            <span>peterne.tajmel@gmail.com</span>
+        </a>
+        <a class="contact-item" href="mailto:info@bdhm.hu">
+            <img alt="Email ikon" src="img/kapcsikon/mail.png"/>
+            <span>info@bdhm.hu</span>
+        </a>
+		<a class="contact-item" href="tel:+36703256524">
+		<img alt="Telefon ikon" src="img/kapcsikon/tel.png"/>
+		<span>+36 70 325 6524</span>
+		</a>
+        <div class="zold">
+            <img src="img/zold/zold.jpg" alt="Zöld Minősítés Díjazott" style="width: 100%; border-radius: 8px;">
+        </div>
+    </div>
+    <div class="right-side">
+        <a class="contact-item" href="https://www.facebook.com/brigimade" target="_blank">
+            <img alt="Facebook ikon" src="img/kapcsikon/face.png"/>
+            <span>Facebook</span>
+        </a>
+        <a class="contact-item" href="https://www.tiktok.com/@tpbrigi?_t=ZN-8siAh9ixNoN&_r=1" target="_blank">
+            <img alt="TikTok ikon" src="img/kapcsikon/tiktok.png"/>
+            <span>TikTok</span>
+        </a>
+        <div class="contact-item">
+            <img alt="Cím ikon" src="img/kapcsikon/cim.png"/>
+            <span>9737 Bük, Kossuth utca 2.</span>
+        </div>
+		<div class="google-map">
+		<iframe allowfullscreen="" height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2701.5598279588285!2d16.75327993319717!3d47.38150892350804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476eaf687bbf577d%3A0x4e1c5372b60d7cf4!2sB%C3%BCk%2C%20Kossuth%20u.%202%2C%209737!5e0!3m2!1sen!2shu!4v1752523856787!5m2!1sen!2shu" style="border:0;" width="600">
+</iframe>
+	 </div>
+</div>
+
+<div class="footer">
+    <p>
+        <span data-lang="hu">Copyright © 2025 Brigi Dekor&HandMade. Minden jog fenntartva.</span>
+        <span data-lang="fi" style="display: none;">Tekijänoikeus © 2025 Brigi Dekor&HandMade. Kaikki oikeudet pidätetään.</span>
+    </p>
+    <div>
+        <a href="adatvedelem.html" target="_blank" style="color: inherit; text-decoration: none;" data-lang="hu">Adatvédelmi nyilatkozat</a>
+        <a href="adatvedelem-fi.html" target="_blank" style="color: inherit; text-decoration: none; display: none;" data-lang="fi">Tietosuojailmoitus</a>
+        |
+        <a href="cookie-nyilatkozat.html" target="_blank" style="color: inherit; text-decoration: none;" data-lang="hu">Süti nyilatkozat</a>
+        <a href="cookie-nyilatkozat-fi.html" target="_blank" style="color: inherit; text-decoration: none; display: none;" data-lang="fi">Evästeilmoitus</a>
+    </div>
+</div>
+<a href="#" id="scrollToTop">
+    <img src="img/up.gif" alt="Vissza az elejére" />
+</a>
+
+
+
+ <script>
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault(); // Tiltja a jobbklikk menüt
+    });
+    document.addEventListener('dragstart', function(e) {
+        e.preventDefault(); // Tiltja a képek húzását
+    });
+</script>
+<script>
+function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookie-banner').style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('cookiesAccepted') === 'true') {
+        document.getElementById('cookie-banner').style.display = 'none';
+    }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var scrollToTopButton = document.getElementById("scrollToTop");
+
+    window.addEventListener("scroll", function() {
+        if (window.scrollY > 300) { // Ha 300px-nél többet görgetünk
+            scrollToTopButton.style.display = "block";
+        } else {
+            scrollToTopButton.style.display = "none";
+        }
+    });
+
+    scrollToTopButton.addEventListener("click", function(event) {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll(".nav-link");
+    const currentPage = window.location.pathname.split("/").pop();
+
+    links.forEach(link => {
+        const linkPath = link.getAttribute("href").split("/").pop();
+        
+        if (currentPage === linkPath) {
+            link.classList.add("active");
+
+            // Ha az elem egy dropdown része, ne kapjon aktív háttérszínt
+            if (link.closest(".dropdown-menu")) {
+                link.classList.remove("active");
+            }
+        }
+    });
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const today = new Date().toISOString().split("T")[0]; // Mai dátum ÉÉÉÉ-HH-NN formátumban
+    const programSelect = document.getElementById("programSelect");
+    const options = programSelect.querySelectorAll("option[data-deadline]");
+
+    options.forEach(option => {
+        const deadline = option.getAttribute("data-deadline");
+        if (deadline < today) {
+            option.remove(); // Eltávolítja a lejárt programokat
+        }
+    });
+});
+</script>
+
+
+</body>
+</html>
+
+
